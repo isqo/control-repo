@@ -14,4 +14,4 @@ forge 'https://forge.puppet.com'
 
 mod 'concat',
   git:    'https://github.com/isqo/puppetlabs-concat.git',
-  branch: '1.0.x'
+  branch: 'master'
