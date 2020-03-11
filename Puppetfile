@@ -14,4 +14,4 @@ mod 'apache',
 
 mod 'concat',
   git:    'https://github.com/isqo/puppetlabs-concat.git',
-  branch: 'master'
+  branch: '1.0.x'
