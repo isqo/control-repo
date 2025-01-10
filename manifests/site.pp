@@ -25,7 +25,11 @@
 #
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
 node 'ip-172-31-32-167.eu-west-3.compute.internal' {
-  class { 'apache': }
+ include nginx
+ nginx::resource::server { 'kibana.myhost.com':
+  listen_port => 80,
+  proxy       => 'http://localhost:5601',
+}
 }
 
 node default {
