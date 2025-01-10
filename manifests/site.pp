@@ -24,7 +24,7 @@
 # Puppet Enterprise console and External Node Classifiers (ENC's).
 #
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
-
+  
 node 'ip-172-31-32-167.eu-west-3.compute.internal' {
   nginx::resource::server { 'test.local:8080':
     ensure      => present,
@@ -33,6 +33,15 @@ node 'ip-172-31-32-167.eu-west-3.compute.internal' {
     ipv6_enable => true,
     proxy       => 'http://proxypass',
     spdy        => 'off',
+    http2       => 'on',
+    proxy_read_timeout => '30',
+    proxy_send_timeout => '30',
+    proxy_set_header => [TEST_HEADER],
+    proxy_hide_header => [TEST_HEADER2],
+    proxy_pass_header => [TEST_HEADER"],
+    owner  => 'root',
+    group => 'root',
+    mode => '750',
   }
 }
 
