@@ -30,8 +30,8 @@ class helloworld_specific {
 # Puppet Enterprise console and External Node Classifiers (ENC's).
 #
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
-node 'ip-172-31-39-210.eu-west-3.compute.internal' {
-  include helloworld_specific
+node 'ip-172-31-40-148.eu-west-3.compute.internal' {
+  notify{"notified!":}
 }
 
 node default {
