@@ -12,13 +12,7 @@
 # Disable filebucket by default for all File resources:
 # https://github.com/puppetlabs/docs-archive/blob/master/pe/2015.3/release_notes.markdown#filebucket-resource-no-longer-created-by-default
 # File { backup => false }
-class helloworld {
-  notify{"hello world 6":}
-}
 
-class helloworld_specific {
-  notify{"hello ip-172-31-39-210.eu-west-3.compute.internal":}
-}
 ## Node Definitions ##
 
 # The default node definition matches any node lacking a more specific node
@@ -31,12 +25,11 @@ class helloworld_specific {
 #
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
 node 'ip-172-31-40-148.eu-west-3.compute.internal' {
-  notify{"notified!":}
+  include nginx
 }
 
 node default {
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }
-  include helloworld
 }
