@@ -15,6 +15,10 @@
 class helloworld {
   notify{"hello world 3":}
 }
+
+class helloworld_specific {
+  notify{"hello ip-172-31-39-210.eu-west-3.compute.internal":}
+}
 ## Node Definitions ##
 
 # The default node definition matches any node lacking a more specific node
@@ -26,6 +30,10 @@ class helloworld {
 # Puppet Enterprise console and External Node Classifiers (ENC's).
 #
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
+node ip-172-31-39-210.eu-west-3.compute.internal {
+  include helloworld_specific
+}
+
 node default {
   # This is where you can declare classes for all nodes.
   # Example:
