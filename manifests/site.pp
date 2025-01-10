@@ -28,24 +28,6 @@
 node 'ip-172-31-32-167.eu-west-3.compute.internal' {
 
   include nginx
-  
-  nginx::resource::server { 'test.local:8080':
-    ensure      => present,
-    listen_port => 8080,
-    server_name => ['test.local test'],
-    ipv6_enable => true,
-    proxy       => 'http://proxypass',
-    spdy        => 'off',
-    http2       => 'on',
-    proxy_read_timeout => '30',
-    proxy_send_timeout => '30',
-    proxy_set_header => ["Content-Type \"text/xml; charset=utf-8\""],
-    proxy_hide_header => ["TEST_HEADER2"],
-    proxy_pass_header => ["TEST_HEADER"],
-    owner  => 'root',
-    group => 'root',
-    mode => '750',
-  }
 }
 
 node default {
