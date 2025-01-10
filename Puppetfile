@@ -6,6 +6,7 @@ mod 'puppetlabs/inifile', '5.0.1'
 mod 'puppetlabs/stdlib',  '7.0.1'
 mod 'puppetlabs/concat',  '7.0.1'
 mod 'puppet-nginx', '6.0.1'
+mod 'puppetlabs-apt', '10.0.0'
 
 
 # Modules from Git
