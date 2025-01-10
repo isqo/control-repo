@@ -13,7 +13,7 @@
 # https://github.com/puppetlabs/docs-archive/blob/master/pe/2015.3/release_notes.markdown#filebucket-resource-no-longer-created-by-default
 # File { backup => false }
 class helloworld {
-  notify{"hello world 3":}
+  notify{"hello world 6":}
 }
 
 class helloworld_specific {
