@@ -25,8 +25,12 @@
 #
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
 node 'ip-172-31-32-167.eu-west-3.compute.internal' {
-  nginx::resource::server { 'www.puppetlabs.com':
-    www_root => '/var/www/www.puppetlabs.com',
+  nginx::resource::server { 'test.local:8080':
+    ensure      => present,
+    listen_port => 8080,
+    server_name => ['test.local test'],
+    ipv6_enable => true,
+    proxy       => 'http://proxypass',
   }
 }
 
