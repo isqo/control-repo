@@ -11,7 +11,7 @@
 
 # Disable filebucket by default for all File resources:
 # https://github.com/puppetlabs/docs-archive/blob/master/pe/2015.3/release_notes.markdown#filebucket-resource-no-longer-created-by-default
-File { backup => false }
+# File { backup => false }
 
 ## Node Definitions ##
 
@@ -28,4 +28,7 @@ node default {
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }
+  class helloworld {
+    notify{"sec ibd ghekii world":}
+  }
 }
