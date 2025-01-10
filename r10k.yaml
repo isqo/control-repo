@@ -6,5 +6,5 @@
 # branch in /etc/puppet/environments 
   :opstree: 
 #remote: 'https://github.com/isqo/control-repo.git' 
-    remote: '/var/lib/git/fullstackpuppet-environment.git' 
+    remote: 'https://github.com/isqo/control-repo.git' 
     basedir: '/etc/puppet/environments' 
