@@ -39,7 +39,7 @@ node 'ip-172-31-32-167.eu-west-3.compute.internal' {
     http2       => 'on',
     proxy_read_timeout => '30',
     proxy_send_timeout => '30',
-    proxy_set_header => ["Content-Type "text/xml; charset=utf-8""],
+    proxy_set_header => ["Content-Type \"text/xml; charset=utf-8\""],
     proxy_hide_header => ["TEST_HEADER2"],
     proxy_pass_header => ["TEST_HEADER"],
     owner  => 'root',
