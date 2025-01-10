@@ -24,7 +24,7 @@
 # Puppet Enterprise console and External Node Classifiers (ENC's).
 #
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
-node 'ip-172-31-40-148.eu-west-3.compute.internal' {
+node 'ip-172-31-32-167.eu-west-3.compute.internal' {
   include nginx
   
   nginx::resource::server { 'kibana.myhost.com':
