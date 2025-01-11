@@ -25,9 +25,17 @@
 #
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
 
+$postgres_host = 'ec2-13-38-70-126.eu-west-3.compute.amazonaws.com'
+  
+node 'ip-172-31-2-128.eu-west-3.compute.internal'{
+  class { 'puppetdb::database::postgresql':
+    listen_addresses => $postgres_host,
+  }
+}
 
 #Puppet server
 node 'ip-172-31-10-8.eu-west-3.compute.internal'{
+
 #Quick and dirty change exec root in the future.
 Exec { path => "/usr/bin/" }
 exec { 'dnf -y update':
