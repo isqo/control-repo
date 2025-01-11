@@ -25,6 +25,11 @@
 #
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
 
+#Puppet server
+node 'ip-172-31-10-8.eu-west-3.compute.internal'{
+  class { 'puppetdb::master::config': }
+}
+
 node 'ip-172-31-6-210.eu-west-3.compute.internal' {
 #Quick and dirty change exec root in the future.
 Exec { path => "/usr/bin/" }
