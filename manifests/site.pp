@@ -28,6 +28,15 @@
 $postgres_host = 'ec2-13-38-70-126.eu-west-3.compute.amazonaws.com'
   
 node 'ip-172-31-2-128.eu-west-3.compute.internal'{
+    exec { 'dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm':
+    }
+    ->
+    exec { 'dnf -qy module disable postgresql ':
+    }
+    ->
+    exec { 'dnf install -y postgresql14-server':
+    }
+
   class { 'puppetdb::database::postgresql':
     listen_addresses => $postgres_host,
   }
