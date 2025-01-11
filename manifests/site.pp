@@ -41,6 +41,9 @@ exec { 'dnf -qy module disable postgresql ':
 exec { 'dnf install -y postgresql14-server':
 }
 ->
+exec {'mv /etc/yum.repos.d/pgdg-redhat-all.repo /etc/yum.repos.d/pgdg-redhat-all.repo.disabled':
+ user => root,
+}
  # Configure puppetdb and its underlying database
   class { 'puppetdb': }
 }
