@@ -13,6 +13,7 @@ mod 'puppet-systemd', '8.1.0'
 mod 'puppet-archive', '7.1.0'
 mod 'puppet-zypprepo', '5.0.0'
 #mod 'puppetlabs-java', '11.1.0'
+mod 'rehan-git', '2.0.3'
 
 # Modules from Git
 # Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples
