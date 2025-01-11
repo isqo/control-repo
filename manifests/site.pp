@@ -46,33 +46,13 @@ node 'ip-172-31-12-94.eu-west-3.compute.internal'{
   }
 }
 
-#Puppet server
-node 'ip-172-31-10-8.eu-west-3.compute.internal'{
-
-#Quick and dirty change exec root in the future.
-Exec { path => "/usr/bin/" }
-exec { 'dnf -y update':
- user => root,
-}
-->
-exec { 'dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm':
-}
-->
-exec { 'dnf -qy module disable postgresql ':
-}
-->
-exec { 'dnf install -y postgresql14-server':
-}
-->
-exec {'mv /etc/yum.repos.d/pgdg-redhat-all.repo /etc/yum.repos.d/pgdg-redhat-all.repo.disabled':
- user => root,
-}
-
-  # Configure puppetdb and its underlying database
-  class { 'puppetdb': }
-  
-  # Configure the Puppet master to use puppetdb
-  class { 'puppetdb::master::config': }
+#Puppet db
+node 'ip-172-31-8-131.eu-west-3.compute.internal'{
+  # Here we install and configure PuppetDB, and tell it where to
+  # find the PostgreSQL database.
+  class { 'puppetdb::server':
+    database_host => $postgres_host,
+  }
 }
 
 node 'ip-172-31-32-167.eu-west-3.compute.internal' {
