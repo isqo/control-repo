@@ -12,7 +12,7 @@ mod 'puppet-jenkins', '6.0.0'
 mod 'puppet-systemd', '8.1.0'
 mod 'puppet-archive', '7.1.0'
 mod 'puppet-zypprepo', '5.0.0'
-mod 'puppetlabs-java', '11.1.0'
+#mod 'puppetlabs-java', '11.1.0'
 
 # Modules from Git
 # Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples
