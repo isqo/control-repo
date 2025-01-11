@@ -28,7 +28,7 @@
 node 'ip-172-31-5-127.eu-west-3.compute.internal' {
 
 Exec { path => "/usr/bin/" }
-exec { 'dnf update':
+exec { 'dnf -y update':
  user => root,
 }
 ->
