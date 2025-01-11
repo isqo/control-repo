@@ -28,10 +28,11 @@
 
 #Puppet server
 node 'ip-172-31-10-8.eu-west-3.compute.internal'{
-  $puppetdb_host = 'ec2-15-236-134-100.eu-west-3.compute.amazonaws.com'
-  class { 'puppetdb::master::config':
-    puppetdb_server => $puppetdb_host,
-  }
+  # Configure puppetdb and its underlying database
+  class { 'puppetdb': }
+  
+  # Configure the Puppet master to use puppetdb
+  class { 'puppetdb::master::config': }
 }
 
 node 'ip-172-31-6-210.eu-west-3.compute.internal' {
