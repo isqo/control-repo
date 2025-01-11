@@ -25,9 +25,9 @@
 #
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
 
-$postgres_host = 'ec2-13-38-70-126.eu-west-3.compute.amazonaws.com'
-  
-node 'ip-172-31-2-128.eu-west-3.compute.internal'{
+$postgres_host = 'ec2-15-237-251-59.eu-west-3.compute.amazonaws.com'
+#Postgres
+node 'ip-172-31-12-94.eu-west-3.compute.internal'{
     Exec { path => "/usr/bin/" }
 
     exec { 'dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm':
