@@ -29,6 +29,7 @@ node 'ip-172-31-5-127.eu-west-3.compute.internal' {
 
 Exec { path => "/usr/bin/" }
 exec { 'dnf update':
+ user => root,
 }
 ->
 exec { 'dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm':
