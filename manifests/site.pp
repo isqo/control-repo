@@ -29,6 +29,10 @@ node 'ip-172-31-32-167.eu-west-3.compute.internal' {
   class { 'apache': }
 }
 
+node 'ip-172-31-37-119.eu-west-3.compute.internal' {
+include jenkins
+}
+
 node default {
   # This is where you can declare classes for all nodes.
   # Example:
