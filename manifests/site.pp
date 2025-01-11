@@ -39,6 +39,7 @@ Exec { path => "/usr/sbin" }
   exec { 'alternatives --set java /usr/lib/jvm/java-17-openjdk-17.0.13.0.11-3.el8.x86_64/bin/java':
   }
   include jenkins
+  include git
 }
 
 node default {
