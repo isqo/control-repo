@@ -54,7 +54,8 @@ exec {'mv /etc/yum.repos.d/pgdg-redhat-all.repo /etc/yum.repos.d/pgdg-redhat-all
  user => root,
 }
  # Configure puppetdb and its underlying database
-  class { 'puppetdb': }
+  class { 'puppetdb':
+  }
 }
 node 'ip-172-31-32-167.eu-west-3.compute.internal' {
   class { 'apache': }
