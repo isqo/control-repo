@@ -26,7 +26,7 @@
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
 
 node 'ip-172-31-5-127.eu-west-3.compute.internal' {
-
+#Quick and dirty change exec root in the future.
 Exec { path => "/usr/bin/" }
 exec { 'dnf -y update':
  user => root,
