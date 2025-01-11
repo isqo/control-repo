@@ -24,7 +24,16 @@
 # Puppet Enterprise console and External Node Classifiers (ENC's).
 #
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
-  
+
+node 'ip-172-31-42-6.eu-west-3.compute.internal' {
+ # Configure puppetdb and its underlying database
+  class { 'puppetdb': }
+}
+
+node 'ip-172-31-10-8.eu-west-3.compute.internal' {
+ class { 'puppetdb::master::config': }
+}
+
 node 'ip-172-31-32-167.eu-west-3.compute.internal' {
   class { 'apache': }
 }
