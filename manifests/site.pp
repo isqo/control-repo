@@ -25,7 +25,7 @@
 #
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
 
-node 'ip-172-31-42-6.eu-west-3.compute.internal' {
+node 'ip-172-31-5-127.eu-west-3.compute.internal' {
 
 exec { 'sudo dnf update':
 }
