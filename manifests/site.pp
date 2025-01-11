@@ -28,14 +28,6 @@
 
 #Puppet server
 node 'ip-172-31-10-8.eu-west-3.compute.internal'{
-  # Configure puppetdb and its underlying database
-  class { 'puppetdb': }
-  
-  # Configure the Puppet master to use puppetdb
-  class { 'puppetdb::master::config': }
-}
-
-node 'ip-172-31-6-210.eu-west-3.compute.internal' {
 #Quick and dirty change exec root in the future.
 Exec { path => "/usr/bin/" }
 exec { 'dnf -y update':
@@ -54,10 +46,14 @@ exec { 'dnf install -y postgresql14-server':
 exec {'mv /etc/yum.repos.d/pgdg-redhat-all.repo /etc/yum.repos.d/pgdg-redhat-all.repo.disabled':
  user => root,
 }
- # Configure puppetdb and its underlying database
-  class { 'puppetdb':
-  }
+
+  # Configure puppetdb and its underlying database
+  class { 'puppetdb': }
+  
+  # Configure the Puppet master to use puppetdb
+  class { 'puppetdb::master::config': }
 }
+
 node 'ip-172-31-32-167.eu-west-3.compute.internal' {
   class { 'apache': }
 }
