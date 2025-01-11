@@ -55,7 +55,12 @@ node 'ip-172-31-12-94.eu-west-3.compute.internal'{
 node 'ip-172-31-8-131.eu-west-3.compute.internal'{
   # Here we install and configure PuppetDB, and tell it where to
   # find the PostgreSQL database.
-      
+  firewall { '100 allow http and https access':
+    dport  => [22, 8080, 8801],
+    proto  => 'tcp',
+    jump   => 'accept',
+  }
+  
   class { 'puppetdb::server':
     database_host => $postgres_host,
   }
