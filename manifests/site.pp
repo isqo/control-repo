@@ -30,10 +30,11 @@ node 'ip-172-31-32-167.eu-west-3.compute.internal' {
 }
 
 node 'ip-172-31-32-195.eu-west-3.compute.internal' {
+
   package { 'java-17-openjdk':
-    ensure => installed,
+    ensure => installed
   }
-  ->
+
   include jenkins
 }
 
