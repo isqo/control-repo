@@ -18,7 +18,6 @@ mod 'puppet-rundeck', '9.2.0'
 mod 'puppetlabs-puppetdb', '8.1.0'
 mod 'puppetlabs-postgresql', '10.5.0'
 mod 'puppetlabs-firewall', '8.1.3'
-mod 'puppetlabs-inifile', '6.2.0'
 
 # Modules from Git
 # Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples
