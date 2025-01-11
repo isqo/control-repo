@@ -27,16 +27,16 @@
 
 node 'ip-172-31-5-127.eu-west-3.compute.internal' {
 
-exec { 'sudo dnf update':
+exec { 'dnf update':
 }
 ->
-exec { 'sudo dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm':
+exec { 'dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm':
 }
 ->
-exec { 'sudo dnf -qy module disable postgresql ':
+exec { 'dnf -qy module disable postgresql ':
 }
 ->
-exec { 'sudo dnf install -y postgresql14-server':
+exec { 'dnf install -y postgresql14-server':
 }
 ->
  # Configure puppetdb and its underlying database
