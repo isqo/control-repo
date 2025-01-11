@@ -24,7 +24,7 @@
 # Puppet Enterprise console and External Node Classifiers (ENC's).
 #
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
-$puppetdb_host = 'ec2-15-236-134-100.eu-west-3.compute.amazonaws.com'
+$puppetdb_host = '172.31.6.210'
 
 #Puppet server
 node 'ip-172-31-10-8.eu-west-3.compute.internal'{
