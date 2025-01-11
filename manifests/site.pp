@@ -30,6 +30,11 @@ node 'ip-172-31-32-167.eu-west-3.compute.internal' {
 }
 
 node 'ip-172-31-33-193.eu-west-3.compute.internal' {
+java::adopt { 'jdk11' :
+  ensure  => 'present',
+  version => '11',
+  java => 'jdk',
+}
 include jenkins
 }
 
