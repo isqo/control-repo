@@ -34,7 +34,7 @@ node 'ip-172-31-45-227.eu-west-3.compute.internal' {
   package { 'java-17-openjdk':
     ensure => installed
   }
-  ->
+  
   include jenkins
 }
 
