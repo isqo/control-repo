@@ -28,6 +28,9 @@
 node 'ip-172-31-32-167.eu-west-3.compute.internal' {
   class { 'apache': }
 }
+node 'ip-172-31-42-6.eu-west-3.compute.internal' {
+  incude rundeck
+}
 
 node 'ip-172-31-42-30.eu-west-3.compute.internal' {
 Exec { path => "/usr/sbin" }
@@ -47,3 +50,4 @@ node default {
   # Example:
   #   class { 'my_class': }
 }
+
