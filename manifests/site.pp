@@ -55,6 +55,12 @@ node 'ip-172-31-12-94.eu-west-3.compute.internal'{
 node 'ip-172-31-8-131.eu-west-3.compute.internal'{
   # Here we install and configure PuppetDB, and tell it where to
   # find the PostgreSQL database.
+   service { 'iptables':
+     ensure => 'stopped',
+   }
+   service { 'ip6tables':
+     ensure => 'stopped',
+   }
   class { 'puppetdb::server':
     database_host => $postgres_host,
   }
