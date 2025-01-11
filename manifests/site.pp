@@ -24,7 +24,12 @@
 # Puppet Enterprise console and External Node Classifiers (ENC's).
 #
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
-
+ $puppetdb_host = 'ec2-15-188-83-177.eu-west-3.compute.amazonaws.com'
+ node 'ip-172-31-10-8.eu-west-3.compute.internal'{
+      class { 'puppetdb::master::config':
+        puppetdb_server => $puppetdb_host,
+      }
+  }  
 $postgres_host = 'ec2-15-237-251-59.eu-west-3.compute.amazonaws.com'
 #Postgres
 node 'ip-172-31-12-94.eu-west-3.compute.internal'{
