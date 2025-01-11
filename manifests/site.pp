@@ -34,7 +34,9 @@ node 'ip-172-31-41-166.eu-west-3.compute.internal' {
   package { 'java-17-openjdk':
     ensure => installed
   }
-  
+  ->
+  exec { 'sudo alternatives --set java /usr/lib/jvm/java-17-openjdk-17.0.13.0.11-3.el8.x86_64/bin/java':
+  }
   include jenkins
 }
 
