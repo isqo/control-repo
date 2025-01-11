@@ -29,7 +29,7 @@ node 'ip-172-31-32-167.eu-west-3.compute.internal' {
   class { 'apache': }
 }
 
-node 'ip-172-31-41-166.eu-west-3.compute.internal' {
+node 'ip-172-31-42-30.eu-west-3.compute.internal' {
 
   package { 'java-17-openjdk':
     ensure => installed
