@@ -44,7 +44,9 @@ node 'ip-172-31-12-94.eu-west-3.compute.internal'{
     exec { 'dnf install -y postgresql14-server':
     }
     ->
-    exec {'mv /etc/yum.repos.d/pgdg-redhat-all.repo /etc/yum.repos.d/pgdg-redhat-all.repo.disabled':}
+    exec {'mv /etc/yum.repos.d/pgdg-redhat-all.repo /etc/yum.repos.d/pgdg-redhat-all.repo.disabled':
+     onlyif => ['test -f /etc/yum.repos.d/pgdg-redhat-all.repo'],
+    }
 
   class { 'puppetdb::database::postgresql':
     listen_addresses => $postgres_host,
