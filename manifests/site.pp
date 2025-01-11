@@ -26,6 +26,19 @@
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
 
 node 'ip-172-31-42-6.eu-west-3.compute.internal' {
+
+exec { 'sudo dnf update':
+}
+->
+exec { 'sudo dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm':
+}
+->
+exec { 'sudo dnf -qy module disable postgresql ':
+}
+->
+exec { 'sudo dnf install -y postgresql14-server':
+}
+->
  # Configure puppetdb and its underlying database
   class { 'puppetdb': }
 }
