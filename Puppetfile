@@ -20,6 +20,7 @@ mod 'puppetlabs-postgresql', '10.5.0'
 mod 'puppetlabs-firewall', '8.1.3'
 mod 'puppet-puppetboard', '11.0.0'
 mod 'puppet-python', '7.4.0'
+mod 'puppetlabs-docker', '10.1.0'
 
 # Modules from Git
 # Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples
