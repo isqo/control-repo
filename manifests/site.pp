@@ -26,8 +26,11 @@
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
  node 'ip-172-31-10-8.eu-west-3.compute.internal'{
       $message = lookup('message', undef, undef, 'Hello world')
-
       notify{"message is $message":}
+
+      $test = lookup('test', undef, undef, 'Hello world')
+      notify{"message is $test":}
+      
       $puppetdb_host='ip-172-31-8-131.eu-west-3.compute.internal'
       
       class { 'puppetdb::master::config':
