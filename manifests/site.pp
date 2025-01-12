@@ -26,7 +26,7 @@
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
  node 'ip-172-31-10-8.eu-west-3.compute.internal'{
       class { 'puppetdb::master::config':
-        puppetdb_server => $puppetdb_hostst,
+         puppetdb_server => $puppetdb_host,
       }
   
   }  
