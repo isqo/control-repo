@@ -58,7 +58,7 @@
           'PUPPETDB_PORT=8081',
           'PUPPETBOARD_PORT=8080',
           'ENABLE_CATALOG=true',
-          'PUPPETDB_SSL_VERIFY=false',
+          'PUPPETDB_SSL_VERIFY=true',
           'PUPPETDB_KEY=/etc/puppetboard/key.pem',
           'PUPPETDB_CERT=/etc/puppetboard/cert.pem',
           'SECRET_KEY=b77e12a35fc1fcf6fd61a7d5a2bf56804c0293b9dfeb2b52fa32fce96400949c',
