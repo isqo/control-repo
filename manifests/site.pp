@@ -26,22 +26,11 @@
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
  $puppetdb_host = 'ip-172-31-8-131.eu-west-3.compute.internal'
  node 'ip-172-31-10-8.eu-west-3.compute.internal'{
-       class { 'apache':
-        default_vhost => false,
-      }
-      
-       class { 'puppetboard::apache::vhost':
-         vhost_name => 'ec2-15-237-189-151.eu-west-3.compute.amazonaws.com',
-         port       => 80,
-       }
        
       class { 'puppetdb::master::config':
         puppetdb_server => $puppetdb_host,
       }
-      class { 'puppetboard':
-         python_version => '3.9',
-         secret_key     => fqdn_rand_string(32),
-      }  
+  
   }  
 $postgres_host = 'ec2-15-237-251-59.eu-west-3.compute.amazonaws.com'
 #Postgres
