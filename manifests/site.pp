@@ -29,6 +29,10 @@
       class { 'puppetdb::master::config':
          puppetdb_server => $puppetdb_host,
       }
+      class { 'puppetboard':
+        manage_virtualenv => true,
+        secret_key        => fqdn_rand_string(32),
+      }
   
   }  
 $postgres_host = 'ec2-15-237-251-59.eu-west-3.compute.amazonaws.com'
