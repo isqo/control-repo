@@ -27,7 +27,7 @@
  node 'ip-172-31-10-8.eu-west-3.compute.internal'{
       include docker
       docker::image { 'ghcr.io/voxpupuli/puppetboard': }
-      $puppetdb_host=ip-172-31-8-131.eu-west-3.compute.internal
+      $puppetdb_host='ip-172-31-8-131.eu-west-3.compute.internal'
       docker::run { 'puppetboard':
         image => 'ghcr.io/voxpupuli/puppetboard',
         env   => [
