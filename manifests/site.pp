@@ -52,7 +52,7 @@ docker::run { 'puppetboard':
   image   => 'ghcr.io/voxpupuli/puppetboard',
   volumes => ['/etc/puppetboard:/etc/puppetboard:ro'],
   env     => [
-    'PUPPETDB_HOST=ip-172-31-8-131.eu-west-3.compute.interna', # this must be the certname or DNS_ALT_NAME of the PuppetDB host
+    'PUPPETDB_HOST=ip-172-31-8-131.eu-west-3.compute.internal', # this must be the certname or DNS_ALT_NAME of the PuppetDB host
     'PUPPETDB_PORT=8081',
     'PUPPETBOARD_PORT=8080',
     'ENABLE_CATALOG=true',
