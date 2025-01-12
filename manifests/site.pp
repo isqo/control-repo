@@ -117,7 +117,7 @@ node 'ip-172-31-32-167.eu-west-3.compute.internal' {
   class { 'apache': }
 }
 
-node 'ip-172-31-42-30.eu-west-3.compute.internal' {
+node 'ip-172-31-32-239.eu-west-3.compute.internal' {
 Exec { path => "/usr/sbin" }
 
   package { 'java-17-openjdk':
