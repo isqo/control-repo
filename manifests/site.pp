@@ -73,13 +73,9 @@
       }
   }  
 
-#Postgres
-node 'ip-172-31-12-94.eu-west-3.compute.internal'{
-    
-    $postgres_host = 'ec2-15-237-251-59.eu-west-3.compute.amazonaws.com'
-
+  class install_postgresql14{
     Exec { path => "/usr/bin/" }
-
+    
     exec { 'dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm':
     }
     ->
@@ -92,6 +88,13 @@ node 'ip-172-31-12-94.eu-west-3.compute.internal'{
     exec {'mv /etc/yum.repos.d/pgdg-redhat-all.repo /etc/yum.repos.d/pgdg-redhat-all.repo.disabled':
      onlyif => ['test -f /etc/yum.repos.d/pgdg-redhat-all.repo'],
     }
+  }
+  
+#Postgres
+node 'ip-172-31-12-94.eu-west-3.compute.internal'{
+    
+  $postgres_host = 'ec2-15-237-251-59.eu-west-3.compute.amazonaws.com'
+  include install_postgresql14
 
   class { 'puppetdb::database::postgresql':
     listen_addresses => $postgres_host,
