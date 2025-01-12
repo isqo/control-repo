@@ -29,11 +29,41 @@
       class { 'puppetdb::master::config':
          puppetdb_server => $puppetdb_host,
       }
-      class { 'puppetboard':
-        manage_virtualenv => true,
-        secret_key        => fqdn_rand_string(32),
+      file { '/etc/puppetboard':
+          ensure => directory,
       }
-  
+      
+      file { '/etc/puppetboard/key.pem':
+        ensure => file,
+        mode   => '0644',
+        source => "/etc/puppetlabs/puppet/ssl/private_keys/${facts['networking']['fqdn']}.pem",
+      }
+      file { '/etc/puppetboard/cert.pem':
+        ensure => file,
+        mode   => '0644',
+        source => "/etc/puppetlabs/puppet/ssl/certs/${facts['networking']['fqdn']}.pem",
+      }
+
+      include docker
+      
+      docker::image { 'ghcr.io/voxpupuli/puppetboard': }
+
+docker::run { 'puppetboard':
+  image   => 'ghcr.io/voxpupuli/puppetboard',
+  volumes => ['/etc/puppetboard:/etc/puppetboard:ro'],
+  env     => [
+    'PUPPETDB_HOST=ip-172-31-8-131.eu-west-3.compute.interna', # this must be the certname or DNS_ALT_NAME of the PuppetDB host
+    'PUPPETDB_PORT=8081',
+    'PUPPETBOARD_PORT=8080',
+    'ENABLE_CATALOG=true',
+    'PUPPETDB_SSL_VERIFY=false',
+    'PUPPETDB_KEY=/etc/puppetboard/key.pem',
+    'PUPPETDB_CERT=/etc/puppetboard/cert.pem',
+    'SECRET_KEY=b77e12a35fc1fcf6fd61a7d5a2bf56804c0293b9dfeb2b52fa32fce96400949c',
+    'DEFAULT_ENVIRONMENT=*',
+  ],
+  net     => 'host',
+}
   }  
 $postgres_host = 'ec2-15-237-251-59.eu-west-3.compute.amazonaws.com'
 #Postgres
