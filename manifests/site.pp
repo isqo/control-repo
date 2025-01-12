@@ -25,7 +25,9 @@
 #
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
  node 'ip-172-31-10-8.eu-west-3.compute.internal'{
+      
       $puppetdb_host='ip-172-31-8-131.eu-west-3.compute.internal'
+      
       class { 'puppetdb::master::config':
          puppetdb_server => $puppetdb_host,
       }
@@ -48,26 +50,29 @@
       
       docker::image { 'ghcr.io/voxpupuli/puppetboard': }
 
-docker::run { 'puppetboard':
-  image   => 'ghcr.io/voxpupuli/puppetboard',
-  volumes => ['/etc/puppetboard:/etc/puppetboard:ro'],
-  env     => [
-    'PUPPETDB_HOST=ip-172-31-8-131.eu-west-3.compute.internal', # this must be the certname or DNS_ALT_NAME of the PuppetDB host
-    'PUPPETDB_PORT=8081',
-    'PUPPETBOARD_PORT=8080',
-    'ENABLE_CATALOG=true',
-    'PUPPETDB_SSL_VERIFY=false',
-    'PUPPETDB_KEY=/etc/puppetboard/key.pem',
-    'PUPPETDB_CERT=/etc/puppetboard/cert.pem',
-    'SECRET_KEY=b77e12a35fc1fcf6fd61a7d5a2bf56804c0293b9dfeb2b52fa32fce96400949c',
-    'DEFAULT_ENVIRONMENT=*',
-  ],
-  net     => 'host',
-}
+      docker::run { 'puppetboard':
+        image   => 'ghcr.io/voxpupuli/puppetboard',
+        volumes => ['/etc/puppetboard:/etc/puppetboard:ro'],
+        env     => [
+          'PUPPETDB_HOST=ip-172-31-8-131.eu-west-3.compute.internal', # this must be the certname or DNS_ALT_NAME of the PuppetDB host
+          'PUPPETDB_PORT=8081',
+          'PUPPETBOARD_PORT=8080',
+          'ENABLE_CATALOG=true',
+          'PUPPETDB_SSL_VERIFY=false',
+          'PUPPETDB_KEY=/etc/puppetboard/key.pem',
+          'PUPPETDB_CERT=/etc/puppetboard/cert.pem',
+          'SECRET_KEY=b77e12a35fc1fcf6fd61a7d5a2bf56804c0293b9dfeb2b52fa32fce96400949c',
+          'DEFAULT_ENVIRONMENT=*',
+        ],
+        net     => 'host',
+      }
   }  
-$postgres_host = 'ec2-15-237-251-59.eu-west-3.compute.amazonaws.com'
+
 #Postgres
 node 'ip-172-31-12-94.eu-west-3.compute.internal'{
+    
+    $postgres_host = 'ec2-15-237-251-59.eu-west-3.compute.amazonaws.com'
+
     Exec { path => "/usr/bin/" }
 
     exec { 'dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm':
