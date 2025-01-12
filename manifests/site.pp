@@ -26,7 +26,20 @@
 # For more on node definitions, see: https://puppet.com/docs/puppet/latest/lang_node_definitions.html
  $puppetdb_host = 'ip-172-31-8-131.eu-west-3.compute.internal'
  node 'ip-172-31-10-8.eu-west-3.compute.internal'{
-       
+      include docker
+      
+      docker::image { 'ghcr.io/voxpupuli/puppetboard': }
+      
+      docker::run { 'puppetboard':
+        image => 'ghcr.io/voxpupuli/puppetboard',
+        env   => [
+          'PUPPETDB_HOST=172.31.8.131',
+          'PUPPETDB_PORT=8080',
+          'PUPPETBOARD_PORT=8088',
+          'SECRET_KEY=9d71211996c7aad729da68a49edd61e33209860f68aa4d168e062b31f88e20df',
+        ],
+        net   => 'host',
+      }
       class { 'puppetdb::master::config':
         puppetdb_server => $puppetdb_host,
       }
