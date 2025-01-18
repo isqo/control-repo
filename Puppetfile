@@ -22,6 +22,7 @@ mod 'puppet-python', '7.4.0'
 mod 'puppetlabs-java', '11.1.0'
 mod 'pest-nexus', '4.1.0'
 mod 'puppet-extlib', '7.3.0'
+mod 'puppetlabs-device_manager', '4.1.0'
 
 # Modules from Git
 # Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples
