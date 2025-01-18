@@ -89,7 +89,23 @@
      onlyif => ['test -f /etc/yum.repos.d/pgdg-redhat-all.repo'],
     }
   }
+
+#Nexus
   
+  node 'ip-172-31-15-246.eu-west-3.compute.internal'{
+   # puppetlabs-java
+   # NOTE: Nexus requires
+   class{ 'java': }
+   
+   class{ 'nexus':
+     version => '3.42.0-01',
+   }
+   
+   Class['java'] ->
+   Class['nexus']
+  }
+
+
 #Postgres
 node 'ip-172-31-12-94.eu-west-3.compute.internal'{
     
